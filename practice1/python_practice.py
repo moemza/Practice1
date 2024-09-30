@@ -1,3 +1,4 @@
+
 def filter_numbers(num1, num2):
     """Create a Python program that returns all the numbers from 0-9 except for the 
     two numbers that the user has inputted.
@@ -111,8 +112,9 @@ def month_days(month):
 
     # Check if the month is valid and return the number of days
     if month in month_days:
-        month = month.capitalize()
-        return f"{month} days"
+        month_day = month_days.get(month)
+        #month = month.capitalize()
+        return f"{month_day} days"
     else:
         return "Invalid month!"
 
@@ -163,7 +165,8 @@ def fibonacci(n):
         for i in range(2,n):
             sum = fib_list[i-1] + fib_list[i-2]
             fib_list.append(sum)
-    return ' '.split(fib_list)
+    
+    return fib_list
         
 
 
@@ -182,6 +185,22 @@ Omicron Effect: Foreign Flights Won't On Dec 15,
     Args:
         sentence (str): _description_
     """
+   
+
+    list_words = ' '.split(sentence)
+    for i in list_words:
+        lenword = len(i) 
+            list_words
+    if lenword > 1: 
+             for x in range (2, lenword): 
+                 if lenword % x == 0:
+                                           
+            
+         else: 
+            return False 
+
+    
+
 
     
 def shift_decimals(test_int, decimal_shift):
@@ -213,4 +232,9 @@ Result = 54321
         decimal_shift (int): num of decimal shifts
     """
 print(filter_numbers(2, 5))
-
+print(star_conversion("Moemedi",5))
+print(find_exponent(2,9))
+print(reverse_cases(['The','shee','dogs']))
+print(month_days("february"))
+print(remove_duplicates([1, 3, 4, 10, 4, 1, 43]))
+print(fibonacci(10))
