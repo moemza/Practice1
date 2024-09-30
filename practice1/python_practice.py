@@ -187,20 +187,23 @@ Omicron Effect: Foreign Flights Won't On Dec 15,
     """
    
 
-    list_words = ' '.split(sentence)
-    for i in list_words:
-        lenword = len(i) 
-            list_words
-    if lenword > 1: 
-             for x in range (2, lenword): 
-                 if lenword % x == 0:
-                                           
-            
-         else: 
-            return False 
+    def is_prime(n):   #Check if a number is prime
+        if n <= 1:
+            return False
+        for i in range(2, int(n**0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
 
-    
+    new_list = []
+    list_words = sentence.split()  # Split the sentence into words
 
+    for words in list_words:
+        lenword = len(words)
+        if lenword > 1 and is_prime(lenword):  # Check if length is prime
+            new_list.append(words)
+
+    return ' '.join(new_list)
 
     
 def shift_decimals(test_int, decimal_shift):
@@ -231,6 +234,22 @@ Result = 54321
         test_int (int): int of 5 values
         decimal_shift (int): num of decimal shifts
     """
+    
+    num_str = str(test_int)
+    if len(num_str) < decimal_shift:
+        num_str = num_str[::-1]
+        return int(num_str)
+    else:
+        num_after = num_str[decimal_shift:]
+        num_before = num_str[:decimal_shift]
+        num_str = num_after + num_before
+        return int(num_str)
+    
+            
+        
+        
+    
+# for quick test    
 print(filter_numbers(2, 5))
 print(star_conversion("Moemedi",5))
 print(find_exponent(2,9))
@@ -238,3 +257,5 @@ print(reverse_cases(['The','shee','dogs']))
 print(month_days("february"))
 print(remove_duplicates([1, 3, 4, 10, 4, 1, 43]))
 print(fibonacci(10))
+print(prime_words("The quick brown fox jumps over the lazy dog"))
+print(shift_decimals(15324, 3))
