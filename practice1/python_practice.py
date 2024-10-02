@@ -14,8 +14,8 @@ def filter_numbers(num1, num2):
     numbers = []
     for i in range(10):
         if i != num1 and i != num2:
-            numbers.append(str(i))
-    return ' '.join(numbers)
+            numbers.append(i)
+    return numbers
         
 
 def star_conversion(word, index):
@@ -36,8 +36,10 @@ def star_conversion(word, index):
     if len(new_word) < index:
         print("Index out of range")
     else:
-        new_word[index] = "*"    
-        return ''.join(new_word)
+        for i in range(len(new_word)):
+            if i == index:
+                new_word[index-1] = "*"    
+    return ''.join(new_word)
 
 def find_exponent(a, n):
     """Create a program to find an integer exponent x such that a^x = n.
@@ -60,7 +62,7 @@ def find_exponent(a, n):
         x = x + 1
         total = total * a
     if total == n:
-        return f"x={x}"  # We found the exponent
+        return x    # We found the exponent
     else:
         return None
     
@@ -93,28 +95,26 @@ def month_days(month):
     """
     
     month_days = {
-        "january": 31,
-        "february": 28,  
-        "march": 31,
-        "april": 30,
+        "january": 31, "jan": 31,
+        "february": 28, "feb": 28,
+        "march": 31, "mar": 31,
+        "april": 30, "apr": 30,
         "may": 31,
-        "june": 30,
-        "july": 31,
-        "august": 31,
-        "september": 30,
-        "october": 31,
-        "november": 30,
-        "december": 31
+        "june": 30, "jun": 30,
+        "july": 31, "jul": 31,
+        "august": 31, "aug": 31,
+        "september": 30, "sep": 30,
+        "october": 31, "oct": 31,
+        "november": 30, "nov": 30,
+        "december": 31, "dec": 31
     }
 
-   
     month = month.lower()
 
     # Check if the month is valid and return the number of days
     if month in month_days:
         month_day = month_days.get(month)
-        #month = month.capitalize()
-        return f"{month_day} days"
+        return str(month_day)
     else:
         return "Invalid month!"
 
